@@ -1,0 +1,28 @@
+@font-face {
+  font-family: Rubik;
+  src: local('Rubik'), url(../assets/fonts/font-Rubik/Rubik-Regular.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: Rubik;
+  src: local('Rubik'), url(../assets/fonts/font-Rubik/Rubik-Bold.ttf) format('truetype');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: Rubik;
+  src: local('Rubik'), url(../assets/fonts/font-Rubik/Rubik-ExtraBold.ttf) format('truetype');
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: Rubik;
+  src: local('Rubik'), url(../assets/fonts/font-Rubik/Rubik-Black.ttf) format('truetype');
+  font-weight: 900;
+}
+
+@font-face {
+  font-family: Rubik;
+  src: local('Rubik'), url(../assets/fonts/font-Rubik/Rubik-Light.ttf) format('truetype');
+  font-weight: 300;
+}

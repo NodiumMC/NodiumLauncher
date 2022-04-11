@@ -1,0 +1,18 @@
+{
+  "name": "nodium-launcher",
+  "version": "0.6.0",
+  "description": "The best minecraft launcher",
+  "main": "./dist/main/main.js",
+  "author": {
+    "name": "LIMPIX31",
+    "email": "limpix31@gmail.com",
+    "url": "https://github.com/LIMPIX31"
+  },
+  "scripts": {
+    "electron-rebuild": "node -r ts-node/register ../../.erb/scripts/electron-rebuild.js",
+    "link-modules": "node -r ts-node/register ../../.erb/scripts/link-modules.ts",
+    "postinstall": "npm run electron-rebuild && npm run link-modules"
+  },
+  "dependencies": {},
+  "license": "MIT"
+}

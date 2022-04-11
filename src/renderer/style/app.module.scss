@@ -1,0 +1,16 @@
+@import "src/renderer/style/vars";
+
+.appWindow {
+  width: 100%;
+  height: 100%;
+  background: $header;
+  display: flex;
+  flex-direction: column;
+  .view{
+    flex-grow: 1;
+    background: $base;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    position: relative;
+  }
+}
