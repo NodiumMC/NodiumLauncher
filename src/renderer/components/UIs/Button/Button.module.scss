@@ -1,0 +1,95 @@
+@import "src/renderer/style/vars";
+
+.button {
+  height: 42px;
+  min-width: 42px;
+  background: $dbase;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  transition: all .3s;
+  position: relative;
+  &:hover{
+    transform: translateY(-3px);
+    &:before{
+      filter: blur(20px);
+    }
+  }
+
+  .iconWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 42px;
+    height: 42px;
+    position: relative;
+
+    * {
+      font-size: 24px;
+      color: $header;
+    }
+  }
+
+  .label {
+    padding: 0 15px;
+    font-family: GTEestiProText, sans-serif;
+    color: $accent;
+  }
+
+}
+
+.small {
+  .iconWrapper {
+    //width: 32px;
+    //height: 32px;
+    * {
+      font-size: 16px !important;
+    }
+  }
+
+  .label {
+    opacity: .8;
+  }
+}
+
+.primary {
+  background: $primary;
+
+  &:before{
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    background: $primary;
+    transition: all .3s;
+    opacity: .5;
+  }
+
+  .iconWrapper {
+    * {
+      color: $accent;
+    }
+  }
+
+  .label {
+    color: $accent;
+  }
+}
+
+.hasLabel .iconWrapper:after {
+  content: '';
+  position: absolute;
+  display: block;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
+  height: 60%;
+  width: 1px;
+  background: $accent;
+  opacity: .2;
+}

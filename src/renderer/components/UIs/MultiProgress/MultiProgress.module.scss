@@ -1,0 +1,36 @@
+.wrapper{
+  width: 960px;
+  height: 18px;
+  background-color: rgb(20, 22, 24);
+  .progresss{
+    width: 100%;
+    height: 100%;
+    filter: url(#multiprogressfilter);
+    position: relative;
+    .progress{
+      top: 0;
+      left: 0;
+      position: absolute;
+      height: 100%;
+      transition: .3s all;
+    }
+    .progress0{
+      width: 70%;
+      background: url(patterns/0.svg);
+    }
+    .progress1{
+      background: url(patterns/1.svg);
+      width: 50%;
+    }
+    .progress2{
+      background: url(patterns/2.svg);
+      width: 30%;
+    }
+    .progress3{
+      background: linear-gradient(327deg, rgb(255, 176, 176) 0%, rgb(255, 137, 224) 50%, rgb(163, 71, 255) 100%);
+      background-attachment: fixed;
+      background-size: 100% 100%;
+      width: 10%;
+    }
+  }
+}

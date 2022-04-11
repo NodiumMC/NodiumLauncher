@@ -3,5 +3,5 @@ export interface ClassNamable {
 }
 
 export interface OnClickable {
-  onClick: () => any
+  onClick?: () => any
 }

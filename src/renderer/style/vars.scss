@@ -1,8 +1,11 @@
 $base: rgb(20, 22, 26);
-$primary: rgb(52, 40, 100);
+$primary: rgb(86, 69, 162);
 $accent: rgb(233, 236, 255);
 $header: rgb(33, 36, 42);
+$lbase: lighten($base, 2%);
+$dbase: darken($base, 2%);
 $magenta: rgb(115, 0, 255);
+$primary-gradient: linear-gradient(327deg, rgb(255, 176, 176) 0%, rgb(255, 137, 224) 50%, rgb(163, 71, 255) 100%);
 
 $red: #ff004e;
 $yellow: #ffe959;

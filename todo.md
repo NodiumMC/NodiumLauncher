@@ -8,7 +8,7 @@
 ### Day 2
 7. Add icons [√]
 8. Replace app info [√]
-*9. Set up the coolest DI [ ]*
-*10. Prepare usable store [ ]*
-*11. Create main layout [ ]*
-*12. Create start button [ ]*
+9. Set up the coolest DI [√]
+10. Prepare usable store [√]
+11. Login panel [√]
+*12. Create item list [ ]*

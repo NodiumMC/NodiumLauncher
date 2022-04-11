@@ -1,16 +1,16 @@
 import { FC } from 'react'
 import { Root } from '../../utils/Root'
-import s from './Hone.module.scss'
+import s from './Home.module.scss'
 import { RoundContainer } from '../../containers/RoundContainer'
 import { UserCard } from './UserCard/UserCard'
+import { MultiProgress } from '../../UIs/MultiProgress/MultiProgress'
+import { ProfilePanel } from './ProfilePanel/ProfilePanel'
 
 export const Home: FC = () => {
   return <Root>
     <div className={s.wrapper}>
       <UserCard className={s.usercard}/>
-      <RoundContainer className={s.profile}>
-
-      </RoundContainer>
+      <ProfilePanel className={s.profile}/>
       <RoundContainer className={s.main}>
 
       </RoundContainer>

@@ -1,0 +1,13 @@
+.login{
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  gap: 25px;
+  .actions{
+    display: flex;
+    gap: 10px;
+    .mainAction{
+      flex-grow: 1;
+    }
+  }
+}
