@@ -14,6 +14,9 @@ import { autoUpdater } from 'electron-updater'
 import log from 'electron-log'
 import { resolveHtmlPath } from './util'
 import { IPCWindowAction } from './ipc/IPCWindowAction'
+import { ElectronAppData } from './ElectronAppData'
+import { IPCDataStorage } from './ipc/IPCDataStorage'
+import { IPCGetMaxRAM } from './ipc/IPCGetMaxRAM'
 
 app.commandLine.appendSwitch('--enable-gpu', 'true')
 app.commandLine.appendSwitch('--ignore-gpu-blocklist', 'true')
@@ -23,7 +26,6 @@ app.commandLine.appendSwitch('--enable-accelerated-mjpeg-decode', 'true')
 app.commandLine.appendSwitch('--enable-accelerated-video', 'true')
 app.commandLine.appendSwitch('--enable-native-gpu-memory-buffers', 'true')
 app.commandLine.appendSwitch('--enable-gpu-rasterization', 'true')
-
 
 export default class AppUpdater {
   constructor() {
@@ -54,7 +56,7 @@ const installExtensions = async () => {
 
   return installer
     .default(
-      extensions.map((name) => installer[name]),
+      extensions.map(name => installer[name]),
       forceDownload
     )
     .catch(console.log)
@@ -84,12 +86,16 @@ const createWindow = async () => {
     webPreferences: {
       preload: app.isPackaged
         ? path.join(__dirname, 'preload.js')
-        : path.join(__dirname, '../../.erb/dll/preload.js')
-    }
+        : path.join(__dirname, '../../.erb/dll/preload.js'),
+    },
   })
 
+  ElectronAppData(app)
+
   // Modules
-  IPCWindowAction(app, mainWindow!)
+  IPCWindowAction(app, mainWindow)
+  IPCGetMaxRAM(app, mainWindow)
+  IPCDataStorage(app, mainWindow)
 
   mainWindow.loadURL(resolveHtmlPath('index.html'))
 
@@ -108,9 +114,8 @@ const createWindow = async () => {
     mainWindow = null
   })
 
-
   // Open urls in the user's browser
-  mainWindow.webContents.setWindowOpenHandler((edata) => {
+  mainWindow.webContents.setWindowOpenHandler(edata => {
     shell.openExternal(edata.url)
     return { action: 'deny' }
   })

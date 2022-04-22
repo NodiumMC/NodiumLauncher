@@ -13,7 +13,8 @@
     "pretty": true,
     "sourceMap": true,
     "baseUrl": "./src",
-    "noImplicitReturns": true,
+    "noImplicitAny": false,
+    "noImplicitReturns": false,
     "noFallthroughCasesInSwitch": true,
     "moduleResolution": "node",
     "esModuleInterop": true,
@@ -22,7 +23,10 @@
     "allowJs": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "outDir": "release/app/dist"
+    "outDir": "release/app/dist",
+    "types": [
+      "node","reflect-metadata"
+    ]
   },
   "exclude": [
     "test",

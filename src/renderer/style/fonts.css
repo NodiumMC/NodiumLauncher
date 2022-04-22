@@ -35,6 +35,33 @@
 
 @font-face {
   font-family: GTEestiProText;
-  src: url(../assets/fonts/font-GTEestiProText/GTEestiProText-Regular.ttf) format('truetype');
+  src: local('GTEestiProText'), url(../assets/fonts/font-GTEestiProText/GTEestiProText-Regular.ttf) format('truetype');
   font-weight: normal;
 }
+
+@font-face {
+  font-family: Tomorrow;
+  font-weight: 600;
+  font-style: italic;
+  src: local('Tomorrow'), url(../assets/fonts/font-Tomorrow/Tomorrow-MediumItalic.ttf) format('truetype');
+}
+
+
+@font-face {
+  font-family: Tomorrow;
+  font-weight: 600;
+  font-style: italic;
+  src: local('Tomorrow'), url(../assets/fonts/font-Tomorrow/Tomorrow-MediumItalic.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: Tomorrow;
+  font-weight: 300;
+  src: local('Tomorrow'), url(../assets/fonts/font-Tomorrow/Tomorrow-Light.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: Raleway;
+  src: local('Raleway'), url(../assets/fonts/Raleway.ttf) format('truetype');
+}
+

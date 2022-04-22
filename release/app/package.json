@@ -1,5 +1,5 @@
 {
-  "name": "nodium-launcher",
+  "name": "NodiumLauncher",
   "version": "0.6.0",
   "description": "The best minecraft launcher",
   "main": "./dist/main/main.js",

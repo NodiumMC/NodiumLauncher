@@ -6,4 +6,5 @@ export const Title = styled.div`
   font-family: Rubik, sans-serif;
   font-size: 20px;
   color: rgb(233, 236, 255);
+  user-select: none;
 `

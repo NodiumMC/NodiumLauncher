@@ -1,5 +1,5 @@
 {
-  "name": "nodium-launcher",
+  "name": "NodiumLauncher",
   "description": "The best minecraft launcher",
   "scripts": {
     "build": "concurrently \"npm run build:main\" \"npm run build:renderer\"",
@@ -10,7 +10,7 @@
     "package": "ts-node ./.erb/scripts/clean.js dist && npm run build && electron-builder build --publish never",
     "postinstall": "ts-node .erb/scripts/check-native-dep.js && electron-builder install-app-deps && cross-env NODE_ENV=development TS_NODE_TRANSPILE_ONLY=true webpack --config ./.erb/configs/webpack.config.renderer.dev.dll.ts",
     "start": "ts-node ./.erb/scripts/check-port-in-use.js && npm run start:renderer",
-    "start:main": "cross-env NODE_ENV=development electronmon -r ts-node/register/transpile-only ./src/main/main.ts",
+    "start:main": "cross-env NODE_ENV=development electron -r ts-node/register/transpile-only ./src/main/main.ts",
     "start:preload": "cross-env NODE_ENV=development TS_NODE_TRANSPILE_ONLY=true webpack --config ./.erb/configs/webpack.config.preload.dev.ts",
     "start:renderer": "cross-env NODE_ENV=development TS_NODE_TRANSPILE_ONLY=true webpack serve --config ./.erb/configs/webpack.config.renderer.dev.ts",
     "test": "jest",
@@ -159,7 +159,7 @@
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.0.0",
     "@types/jest": "^27.4.1",
-    "@types/node": "17.0.23",
+    "@types/node": "^17.0.24",
     "@types/react": "^17.0.43",
     "@types/react-dom": "^18.0.0",
     "@types/react-test-renderer": "^17.0.1",
@@ -238,7 +238,9 @@
     "history": "^5.3.0",
     "mobx": "^6.5.0",
     "mobx-react": "^7.3.0",
-    "randpix": "^1.0.3",
+    "ndml-core": "D:\\Projects\\NDMLCore\\",
+    "pretty-bytes": "^6.0.0",
+    "randpix": "^1.1.1",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.3.0",
@@ -251,22 +253,5 @@
     "node": ">=14.x",
     "npm": ">=7.x"
   },
-  "browserslist": [],
-  "prettier": {
-    "overrides": [
-      {
-        "files": [
-          ".prettierrc",
-          ".eslintrc"
-        ],
-        "options": {
-          "parser": "json"
-        }
-      }
-    ],
-    "singleQuote": true,
-    "semi": false,
-    "arrowParens": "avoid",
-    "tabWidth": 2
-  }
+  "browserslist": []
 }

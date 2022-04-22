@@ -11,7 +11,9 @@ export const UserCard: FC<ClassNamable> = ({ className }) => {
 
   const avatar = randpix({
     colorScheme: schemes[(Math.random() * schemes.length) >> 0],
-    scale: 32
+    scale: 32,
+    grayscaleBias: true,
+    colorBias: 25
   })().toDataURL()
 
   return <RoundContainer className={cn(s.usercard, className)}>

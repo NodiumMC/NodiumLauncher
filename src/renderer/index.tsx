@@ -1,5 +1,6 @@
 import { createRoot } from 'react-dom/client'
 import { App } from './App'
+import 'reflect-metadata'
 
 // import flobal styles
 import './style/global.scss'

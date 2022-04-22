@@ -1,9 +1,15 @@
 import { IpcChannel, WindowAction } from 'app/ipc'
 import { IpcMainInvokeEvent, IpcMainEvent, IpcRendererEvent } from 'electron'
+import { MinecraftOptions } from '../app/MinecraftOptions'
 
 export interface IElectronAPI {
   ipcRenderer: {
     windowAction(action: WindowAction): void
+    dataStorageRead(name: string, path?: string): any
+    dataStorageWrite(name: string, value: any): void
+    error(callback: (error: Error) => void): void
+    getMaxRAM(): Promise<number>
+    downloadMinecraft: (options: MinecraftOptions) => Promise<void>
   }
 }
 
@@ -13,51 +19,95 @@ declare global {
   }
 }
 
-
 declare module 'electron' {
   namespace Electron {
-
     interface ContextBridge {
-      exposeInMainWorld(apiKey: string, api: IElectronAPI): void;
+      exposeInMainWorld(apiKey: string, api: IElectronAPI): void
     }
 
     interface IpcMain {
-      handle<K extends keyof IpcChannel>(channel: K, listener: (event: IpcMainInvokeEvent, ...args: IpcChannel[K]) => (Promise<void>) | (any)): void
+      handle<K extends keyof IpcChannel>(
+        channel: K,
+        listener: (
+          event: IpcMainInvokeEvent,
+          ...args: IpcChannel[K]
+        ) => Promise<void> | any
+      ): void
 
-      handleOnce<K extends keyof IpcChannel>(channel: K, listener: (event: IpcMainInvokeEvent, ...args: IpcChannel[K]) => (Promise<void>) | (any)): void
+      handleOnce<K extends keyof IpcChannel>(
+        channel: K,
+        listener: (
+          event: IpcMainInvokeEvent,
+          ...args: IpcChannel[K]
+        ) => Promise<void> | any
+      ): void
 
-      on<K extends keyof IpcChannel>(channel: K, listener: (event: IpcMainEvent, ...args: IpcChannel[K]) => void): this
+      on<K extends keyof IpcChannel>(
+        channel: K,
+        listener: (event: IpcMainEvent, ...args: IpcChannel[K]) => void
+      ): this
 
-      once<K extends keyof IpcChannel>(channel: K, listener: (event: IpcMainEvent, ...args: IpcChannel[K]) => void): this
+      once<K extends keyof IpcChannel>(
+        channel: K,
+        listener: (event: IpcMainEvent, ...args: IpcChannel[K]) => void
+      ): this
 
-      removeAllListeners<K extends keyof IpcChannel>(channel?: K): this;
+      removeAllListeners<K extends keyof IpcChannel>(channel?: K): this
 
-      removeHandler<K extends keyof IpcChannel>(channel: K): void;
+      removeHandler<K extends keyof IpcChannel>(channel: K): void
 
-      removeListener<K extends keyof IpcChannel>(channel: K, listener: (...args: IpcChannel[K]) => void): this;
+      removeListener<K extends keyof IpcChannel>(
+        channel: K,
+        listener: (...args: IpcChannel[K]) => void
+      ): this
     }
 
     interface IpcRenderer {
-      invoke<K extends keyof IpcChannel>(channel: K, ...args: IpcChannel[K]): Promise<any>;
+      invoke<K extends keyof IpcChannel>(
+        channel: K,
+        ...args: IpcChannel[K]
+      ): Promise<any>
 
-      on<K extends keyof IpcChannel>(channel: K, listener: (event: IpcRendererEvent, ...args: IpcChannel[K]) => void): this;
+      on<K extends keyof IpcChannel>(
+        channel: K,
+        listener: (event: IpcRendererEvent, ...args: IpcChannel[K]) => void
+      ): this
 
-      once<K extends keyof IpcChannel>(channel: K, listener: (event: IpcRendererEvent, ...args: IpcChannel[K]) => void): this;
+      once<K extends keyof IpcChannel>(
+        channel: K,
+        listener: (event: IpcRendererEvent, ...args: IpcChannel[K]) => void
+      ): this
 
-      postMessage<K extends keyof IpcChannel>(channel: K, message: any, transfer?: MessagePort[]): void;
+      postMessage<K extends keyof IpcChannel>(
+        channel: K,
+        message: any,
+        transfer?: MessagePort[]
+      ): void
 
-      removeAllListeners<K extends keyof IpcChannel>(channel: K): this;
+      removeAllListeners<K extends keyof IpcChannel>(channel: K): this
 
-      removeListener<K extends keyof IpcChannel>(channel: K, listener: (...args: IpcChannel[K]) => void): this;
+      removeListener<K extends keyof IpcChannel>(
+        channel: K,
+        listener: (...args: IpcChannel[K]) => void
+      ): this
 
-      send<K extends keyof IpcChannel>(channel: K, ...args: IpcChannel[K]): void;
+      send<K extends keyof IpcChannel>(channel: K, ...args: IpcChannel[K]): void
 
-      sendSync<K extends keyof IpcChannel>(channel: K, ...args: IpcChannel[K]): any;
+      sendSync<K extends keyof IpcChannel>(
+        channel: K,
+        ...args: IpcChannel[K]
+      ): any
 
-      sendTo<K extends keyof IpcChannel>(webContentsId: number, channel: K, ...args: IpcChannel[K]): void;
+      sendTo<K extends keyof IpcChannel>(
+        webContentsId: number,
+        channel: K,
+        ...args: IpcChannel[K]
+      ): void
 
-      sendToHost<K extends keyof IpcChannel>(channel: K, ...args: IpcChannel[K]): void;
+      sendToHost<K extends keyof IpcChannel>(
+        channel: K,
+        ...args: IpcChannel[K]
+      ): void
     }
-
   }
 }

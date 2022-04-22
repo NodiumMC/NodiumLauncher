@@ -10,10 +10,13 @@
   cursor: pointer;
   transition: all .3s;
   position: relative;
-  &:hover{
-    transform: translateY(-3px);
-    &:before{
-      filter: blur(20px);
+  user-select: none;
+
+  &:hover {
+    transform: scale(1.05);
+
+    &:before {
+      filter: blur(20px) brightness(2);
     }
   }
 
@@ -27,7 +30,7 @@
 
     * {
       font-size: 24px;
-      color: $header;
+      color: rgba($accent, .2);
     }
   }
 
@@ -56,7 +59,7 @@
 .primary {
   background: $primary;
 
-  &:before{
+  &:before {
     content: '';
     display: block;
     position: absolute;
@@ -67,7 +70,7 @@
     border-radius: 10px;
     background: $primary;
     transition: all .3s;
-    opacity: .5;
+    opacity: .3;
   }
 
   .iconWrapper {

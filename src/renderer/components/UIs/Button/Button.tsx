@@ -13,7 +13,7 @@ export interface ButtonProps {
 
 export const Button: FC<ClassNamable & OnClickable & ButtonProps> =
   ({ className, onClick, icon, label, primary, small }) =>
-    <div className={cn(s.button, small && s.small, primary && s.primary, label && s.hasLabel, className)}>
+    <div className={cn(s.button, small && s.small, primary && s.primary, label && s.hasLabel, className)} onClick={onClick}>
       {icon && <div className={s.iconWrapper}>
         {typeof icon === 'string' ? <img src={icon} alt='' /> : icon}
       </div>}

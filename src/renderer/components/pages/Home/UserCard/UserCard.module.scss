@@ -24,7 +24,7 @@
     height: 150%;
     object-fit: contain;
     filter: blur(30px) brightness(50%);
-    //z-index: -1;
+    user-select: none;
   }
 
   .majorUserInfo {
@@ -35,6 +35,7 @@
       border-radius: 5px;
       box-shadow: 0 0 20px 2px rgba(0,0,0,.4);
       margin-right: 10px;
+      user-select: none;
     }
     .textInfo{
       display: flex;
