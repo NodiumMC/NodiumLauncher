@@ -12,16 +12,16 @@ export const BrandIcon: FC<BrandIconProps> = ({brand}) => {
   return <>
     <svg width="0" height="0">
       <linearGradient id="google-brand-gradient">
-        <stop stop-color="#30e8bf" offset="0%" />
-        <stop stop-color="#ff8235" offset="100%" />
+        <stop stopColor="#30e8bf" offset="0%" />
+        <stop stopColor="#ff8235" offset="100%" />
       </linearGradient>
       <linearGradient id="discord-brand-gradient">
-        <stop stop-color="#6190e8" offset="0%" />
-        <stop stop-color="#a7bfe8" offset="100%" />
+        <stop stopColor="#6190e8" offset="0%" />
+        <stop stopColor="#a7bfe8" offset="100%" />
       </linearGradient>
       <linearGradient id="github-brand-gradient" x1="0" x2="1" y1="1" y2="0">
-        <stop stop-color="#6441a5" offset="0%" />
-        <stop stop-color="#2a0845" offset="100%" />
+        <stop stopColor="#6441a5" offset="0%" />
+        <stop stopColor="#2a0845" offset="100%" />
       </linearGradient>
     </svg>
     {(() => {
