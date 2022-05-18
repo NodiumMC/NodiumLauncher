@@ -16,8 +16,8 @@ const Login: FC = () => <div className={ls.login}>
   <Input placeholder={'Login'}/>
   <Input placeholder={'Password'}/>
   <div className={ls.actions}>
-    <Button icon={<BrandIcon brand={'discord'}/>}/>
-    <Button icon={<BrandIcon brand={'github'}/>}/>
+    <Button icon={<BrandIcon brand={'discord'}/>} disabled/>
+    <Button icon={<BrandIcon brand={'github'}/>} disabled/>
     <Button className={ls.mainAction} label={'Login'} primary small icon={<FontAwesomeIcon icon={faKey}/>}/>
   </div>
 </div>
