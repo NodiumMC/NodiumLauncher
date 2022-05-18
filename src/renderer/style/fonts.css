@@ -65,3 +65,15 @@
   src: local('Raleway'), url(../assets/fonts/Raleway.ttf) format('truetype');
 }
 
+@font-face {
+  font-family: AzeretMono;
+  font-weight: 800;
+  src: local('AzeretMono'), url(../assets/fonts/font-AzeretMono/AzeretMono-ExtraBold.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: AzeretMono;
+  font-weight: 700;
+  src: local('AzeretMono'), url(../assets/fonts/font-AzeretMono/AzeretMono-Bold.ttf) format('truetype');
+}
+
