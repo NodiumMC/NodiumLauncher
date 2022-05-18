@@ -9,11 +9,12 @@ export interface ButtonProps {
   primary?: boolean,
   danger?: boolean
   small?: boolean
+  disabled?: boolean
 }
 
 export const Button: FC<ClassNamable & OnClickable & ButtonProps> =
-  ({ className, onClick, icon, label, primary, small }) =>
-    <div className={cn(s.button, small && s.small, primary && s.primary, label && s.hasLabel, className)} onClick={onClick}>
+  ({ className, onClick, icon, label, primary, small, disabled }) =>
+    <div className={cn(s.button, small && s.small, primary && s.primary, label && s.hasLabel, disabled && s.disabled, className)} onClick={!disabled ? onClick : () => {}}>
       {icon && <div className={s.iconWrapper}>
         {typeof icon === 'string' ? <img src={icon} alt='' /> : icon}
       </div>}

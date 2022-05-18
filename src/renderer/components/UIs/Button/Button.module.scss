@@ -96,3 +96,16 @@
   background: $accent;
   opacity: .2;
 }
+
+.disabled {
+  filter: saturate(0) brightness(50%);
+  cursor: default;
+
+  &:hover {
+    transform: scale(1);
+
+    &:before {
+      filter: blur(0) brightness(100%);
+    }
+  }
+}
