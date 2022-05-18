@@ -2,8 +2,6 @@ import { Container, Service } from 'typedi'
 import { action, makeObservable, observable } from 'mobx'
 import { wait } from './wait'
 import { LocalStorage } from './localstorage/LocalStorage.class'
-import { InstancesLSModel } from './localstorage/models/InstancesLSModel'
-import { InstanceManager } from './instances/InstanceManager'
 
 export type PreloaderQueueTask = () => Awaitable
 export type PreloaderQueueUnit = [name: string, task: () => Awaitable]
@@ -20,8 +18,7 @@ export class Preloader {
       await wait(2000)
     })
     this.add('Preparing local storage', async () => {
-      await this.ls.registerModel(InstancesLSModel)
-      Container.get(InstanceManager).load()
+
     })
   }
 
