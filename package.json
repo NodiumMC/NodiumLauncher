@@ -249,7 +249,8 @@
     "reflect-metadata": "^0.1.13",
     "styled-components": "^5.3.5",
     "typedi": "^0.10.0",
-    "yarn": "^1.22.18"
+    "yarn": "^1.22.18",
+    "yup": "^0.32.11"
   },
   "devEngines": {
     "node": ">=14.x",
