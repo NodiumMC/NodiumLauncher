@@ -1,20 +1,20 @@
-import { FC, useEffect, useRef, useState } from 'react'
+import { FC } from 'react'
 import s from './Input.module.scss'
-import { Field } from 'formik'
-import { FieldAttributes } from 'formik/dist/Field'
+import { FieldAttributes } from 'formik'
 import cn from 'classnames'
 
 export type InputProps = {
-  formik?: boolean
   action?: {
     icon: string
     on?: (options: { set: (value: string) => void; value: string }) => void
   }
   locked?: boolean
+  error?: boolean
+  message?: string
 }
 
 export const Input: FC<InputProps & FieldAttributes<any>> = props => {
-  const { formik, action, onChange, value, locked, disabled, placeholder } =
+  const { action, onChange, value, locked, disabled, placeholder, error, message } =
     props
 
   return (
@@ -22,27 +22,19 @@ export const Input: FC<InputProps & FieldAttributes<any>> = props => {
       className={cn(
         s.container,
         (locked || disabled) && s.locked,
-        disabled && s.disabled
+        disabled && s.disabled,
+        error && s.error
       )}
     >
       <div className={s.wrapper}>
         <div className={s.back} />
         <div className={cn(s.back, s.blurred)} />
-        {formik ? (
-          <Field
-            className={s.input}
-            {...props}
-            required
-            disabled={locked || disabled}
-          />
-        ) : (
-          <input
-            className={s.input}
-            {...props}
-            required
-            disabled={locked || disabled}
-          />
-        )}
+        <input
+          className={s.input}
+          {...props}
+          required
+          disabled={locked || disabled}
+        />
         {action && (
           <div
             className={s.action}
@@ -57,6 +49,7 @@ export const Input: FC<InputProps & FieldAttributes<any>> = props => {
         )}
         <div className={s.placeholder}>{placeholder}</div>
       </div>
+      <div className={s.message}>{message}</div>
     </div>
   )
 }
