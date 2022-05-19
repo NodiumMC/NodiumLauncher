@@ -34,6 +34,7 @@ export const Input: FC<InputProps & FieldAttributes<any>> = props => {
           {...props}
           required
           disabled={locked || disabled}
+          tabIndex={-1}
         />
         {action && (
           <div
