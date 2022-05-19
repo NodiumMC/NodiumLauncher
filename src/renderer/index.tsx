@@ -10,13 +10,16 @@ import { createStore } from './store/store.create'
 import { ApolloProvider } from '@apollo/client'
 import { APIProvider } from '../app/API/APIProvider'
 import Container from 'typedi'
+import { BrowserRouter } from 'react-router-dom'
 
 const container = document.getElementById('root')!
 const root = createRoot(container)
 root.render(
   <StoreContext.Provider value={createStore()}>
     <ApolloProvider client={Container.get(APIProvider).apollo}>
-      <App />
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
     </ApolloProvider>
   </StoreContext.Provider>
 )
