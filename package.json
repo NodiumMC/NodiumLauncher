@@ -156,6 +156,9 @@
   },
   "devDependencies": {
     "@graphql-codegen/cli": "2.6.2",
+    "@graphql-codegen/typescript": "2.4.11",
+    "@graphql-codegen/typescript-operations": "2.4.0",
+    "@graphql-codegen/typescript-react-apollo": "3.2.14",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.6",
     "@teamsupercell/typings-for-css-modules-loader": "^2.5.1",
     "@testing-library/jest-dom": "^5.16.4",
@@ -222,10 +225,7 @@
     "webpack-bundle-analyzer": "^4.5.0",
     "webpack-cli": "^4.9.2",
     "webpack-dev-server": "^4.9.0",
-    "webpack-merge": "^5.8.0",
-    "@graphql-codegen/typescript": "2.4.11",
-    "@graphql-codegen/typescript-operations": "2.4.0",
-    "@graphql-codegen/typescript-react-apollo": "3.2.14"
+    "webpack-merge": "^5.8.0"
   },
   "dependencies": {
     "@apollo/client": "^3.6.4",
@@ -253,6 +253,8 @@
     "react-dom": "^18.1.0",
     "react-router-dom": "^6.3.0",
     "reflect-metadata": "^0.1.13",
+    "rooks": "^5.11.0",
+    "rxjs": "^7.5.5",
     "styled-components": "^5.3.5",
     "typedi": "^0.10.0",
     "yarn": "^1.22.18",
