@@ -1,0 +1,17 @@
+@import "src/renderer/style/vars";
+
+.navside {
+  overflow: hidden;
+  position: relative;
+  .back{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 15px;
+    background: $primary;
+    transform: translateY(0);
+    transition: all .3s;
+  }
+}
