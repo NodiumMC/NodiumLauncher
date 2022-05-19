@@ -3,5 +3,5 @@ import { Preloader } from '../../app/Preloader'
 
 export type GlobalStoreType = {
   localStorage: LocalStorage
-  preloader: Preloader,
+  preloader: Preloader
 }
