@@ -1,11 +1,17 @@
 import { Service } from 'typedi'
 import { ApolloClient, InMemoryCache, NormalizedCacheObject } from '@apollo/client'
+import axios, { AxiosInstance } from 'axios'
 
 @Service()
 export class APIProvider {
-  private BASE_URL: string = 'http://localhost:4044/'
+  static BASE_URL: string = 'http://localhost:4044/'
   readonly apollo: ApolloClient<NormalizedCacheObject> = new ApolloClient({
-    uri: this.BASE_URL + 'graphql',
+    uri: APIProvider.BASE_URL + 'graphql',
     cache: new InMemoryCache()
   });
+  readonly axios: AxiosInstance = axios.create({
+    baseURL: APIProvider.BASE_URL,
+    timeout: 10000,
+    withCredentials: true,
+  })
 }
