@@ -19,15 +19,18 @@ export class Preloader {
       await wait(2000)
     })
     this.add('Preparing local storage', async () => {
-      const ls = Container.get(LocalStorage)
       await ls.registerModel(AccessTokenModel)
     })
   }
 
   @action
-  add(name: string, task: PreloaderQueueTask) {
-    this.queue.push([name, task])
-    this.process()
+  add(name: string, task: PreloaderQueueTask): Promise<void> {
+    return new Promise<void>((resolve) => {
+      this.queue.push([name, async ()  => await task().then(() => resolve()).catch(e => {
+        throw e
+      })])
+      this.process()
+    })
   }
 
   get currentTaskName() {
