@@ -5,7 +5,8 @@ import { Home } from './components/pages/Home/Home'
 import { ObserverComponent } from './components/utils/ObserverComponent'
 import { AppPreloader } from './components/containers/AppPreloader/AppPreloader'
 import { Route, Routes, useNavigate } from 'react-router-dom'
-import { NavSidebar } from './components/pages/Home/NavSidebar/NavSidebar'
+import { NavSidebar } from './components/containers/NavSidebar/NavSidebar'
+import { Console } from './components/pages/Console/Console'
 
 export const App: FC = ObserverComponent(() => {
   const nav = useNavigate()
@@ -19,10 +20,11 @@ export const App: FC = ObserverComponent(() => {
       <Header />
       <div className={s.view}>
         <AppPreloader />
-        <NavSidebar/>
+        <NavSidebar className={s.nav}/>
         <div className={s.page}>
           <Routes>
             <Route path={'/'} element={<Home />}/>
+            <Route path={'/console'} element={<Console />}/>
           </Routes>
         </div>
       </div>
