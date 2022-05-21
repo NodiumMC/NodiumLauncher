@@ -1,10 +1,15 @@
 import { Service } from 'typedi'
-import { User as UserType } from '../graphql/generated/graphql'
+import { User } from '../graphql/generated/graphql'
+import { makeObservable, observable } from 'mobx'
 
 @Service()
-export class User {
+export class UserService {
   // User related
-  userData?: UserType
+  @observable userData?: User
   // Advanced
-  isAuth: boolean = false
+  @observable isAuth: boolean = false
+
+  constructor() {
+    makeObservable(this)
+  }
 }
