@@ -1,0 +1,35 @@
+@import "src/renderer/style/vars";
+
+.signal {
+  height: 22px;
+  width: 22px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+
+  .wrapper {
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: flex-end;
+    gap: 2px;
+    transition: width .3s 3s;
+    overflow: inherit;
+
+    .color1{
+      background-color: $red;
+    }
+
+    .color2{
+      background-color: $yellow;
+    }
+
+    .color3{
+      background-color: $green;
+    }
+  }
+  .hide{
+    width: 0;
+  }
+}
