@@ -17,7 +17,6 @@ import { IPCWindowAction } from './ipc/IPCWindowAction'
 import { ElectronAppData } from './ElectronAppData'
 import { IPCDataStorage } from './ipc/IPCDataStorage'
 import { IPCGetMaxRAM } from './ipc/IPCGetMaxRAM'
-import { bypasscors } from './bypassCORS'
 
 app.commandLine.appendSwitch('--enable-gpu', 'true')
 app.commandLine.appendSwitch('--ignore-gpu-blocklist', 'true')
@@ -88,7 +87,7 @@ const createWindow = async () => {
       preload: app.isPackaged
         ? path.join(__dirname, 'preload.js')
         : path.join(__dirname, '../../.erb/dll/preload.js'),
-      webSecurity: false
+      webSecurity: false,
     },
   })
 
