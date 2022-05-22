@@ -1,3 +1,5 @@
+import { ReactNode } from 'react'
+
 export interface ClassNamable {
   className?: string
 }
@@ -14,3 +16,6 @@ export interface DataEntriable<T> extends Valuable<T> {
   onChange?: (newValue: T) => any
 }
 
+export interface HasChildren {
+  children?: ReactNode
+}

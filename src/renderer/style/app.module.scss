@@ -6,17 +6,20 @@
   background: $header;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
   .view{
+    position: relative;
     flex-grow: 1;
     background: $base;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
-    position: relative;
     display: flex;
     padding: 10px;
     gap: 10px;
+    overflow: hidden;
     .page{
       flex-grow: 1;
+      position: relative;
     }
     .nav{
       flex-shrink: 0;
